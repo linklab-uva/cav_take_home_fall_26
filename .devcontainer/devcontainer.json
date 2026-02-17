@@ -28,6 +28,6 @@
     ],
     "mounts": 
     [
-        "source=/Users/amar/iac_ws/cavmanual/data/bags,target=/home/${localEnv:USER}/cav_take_home_fall_26/data,type=bind,consistency=cached"
+        "source=/Users/ryannguyen/Downloads/bags,target=/home/${localEnv:USER}/cav_take_home_fall_26/data,type=bind,consistency=cached"
     ]
 }

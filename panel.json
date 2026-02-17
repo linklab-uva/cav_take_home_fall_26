@@ -1,17 +1,100 @@
 {
   "configById": {
-    "3D!145ryku": {
+    "RawMessages!1cgspcf": {
+      "topicPath": "/imu_top/jitter"
+    },
+    "Gauge!3lgy8kz": {
+      "path": "/imu_top/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 10000,
+      "colorMap": "turbo",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false
+    },
+    "RawMessages!1atp37n": {
+      "topicPath": "/imu_bottom/jitter"
+    },
+    "Gauge!2pp1f74": {
+      "path": "/imu_bottom/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 10000,
+      "colorMap": "turbo",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false
+    },
+    "RawMessages!2sz4bkq": {
+      "topicPath": "/imu_vectornav/jitter"
+    },
+    "Gauge!49kf3fc": {
+      "path": "/imu_vectornav/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 10000,
+      "colorMap": "turbo",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false
+    },
+    "Plot!4k0u7he": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/fl.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "d17db366-10d1-4feb-93a6-f3becaaf7a9f"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/fr.data",
+          "enabled": true,
+          "color": "#f5774d",
+          "id": "875631ef-6a2e-4889-a1c8-740fec6cff1a",
+          "lineSize": 0.4
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/rl.data",
+          "enabled": true,
+          "color": "#f7df71",
+          "id": "dd70972e-ef24-4448-b635-7d9146a57449"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/rr.data",
+          "enabled": true,
+          "color": "#5cd6a9",
+          "id": "d74c8e09-b3c1-4e4b-91e1-112241839eea"
+        }
+      ]
+    },
+    "Image!2dk6r7g": {
       "cameraState": {
-        "perspective": false,
-        "distance": 412.4176883292589,
-        "phi": 1.9847328244231306,
-        "thetaOffset": 87.74809160315084,
-        "targetOffset": [
-          37.86906835136318,
-          6.612026016497509,
-          3.843641056940937e-15
-        ],
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
         "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
           0,
           0,
           0
@@ -22,81 +105,16 @@
           0,
           1
         ],
+        "thetaOffset": 45,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
       },
       "followMode": "follow-pose",
-      "followTf": "rear_axle_middle_ground",
       "scene": {},
       "transforms": {},
-      "topics": {
-        "/platform/odom/filtered": {
-          "visible": true,
-          "axisScale": 3
-        },
-        "/ouster/scan": {
-          "visible": false,
-          "colorField": "intensity",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/ouster/points_downsampled": {
-          "visible": false,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/target_trajectory": {
-          "visible": true,
-          "pointSize": 3
-        },
-        "/voxel_grid/occupancy": {
-          "visible": true,
-          "frameLocked": false
-        },
-        "/pcl_left": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_front": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_right": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        }
-      },
-      "layers": {
-        "grid": {
-          "visible": false,
-          "frameLocked": true,
-          "label": "Grid",
-          "instanceId": "ea136226-b855-4580-8553-c27cb9eb21a3",
-          "layerId": "foxglove.Grid",
-          "size": 10,
-          "divisions": 10,
-          "lineWidth": 1,
-          "color": "#248eff",
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ]
-        }
-      },
+      "topics": {},
+      "layers": {},
       "publish": {
         "type": "point",
         "poseTopic": "/move_base_simple/goal",
@@ -106,18 +124,26 @@
         "poseEstimateYDeviation": 0.5,
         "poseEstimateThetaDeviation": 0.26179939
       },
-      "imageMode": {}
+      "imageMode": {
+        "imageTopic": "/camera/front_left/image_raw/compressed"
+      }
     },
-    "Plot!1s21uq3": {
-      "paths": [],
-      "showXAxisLabels": true,
-      "showYAxisLabels": true,
-      "showLegend": true,
-      "legendDisplay": "floating",
-      "showPlotValuesInLegend": false,
-      "isSynced": true,
-      "xAxisVal": "timestamp",
-      "sidebarDimension": 240
+    "RawMessages!4k3x75a": {
+      "topicPath": "/lap_time"
+    },
+    "RawMessages!2ia533": {
+      "topicPath": "/curvilinear_distance"
+    },
+    "Plot!40w8yha": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/lap_time.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "24032358-ab1a-40d8-979a-65e5353fd12b"
+        }
+      ]
     }
   },
   "globalVariables": {},
@@ -126,8 +152,51 @@
     "speed": 1
   },
   "layout": {
-    "first": "3D!145ryku",
-    "second": "Plot!1s21uq3",
-    "direction": "row"
+    "direction": "row",
+    "first": {
+      "first": {
+        "first": "RawMessages!1cgspcf",
+        "second": "Gauge!3lgy8kz",
+        "direction": "row",
+        "splitPercentage": 49.66974900924703
+      },
+      "second": {
+        "first": {
+          "first": "RawMessages!1atp37n",
+          "second": "Gauge!2pp1f74",
+          "direction": "row",
+          "splitPercentage": 49.53764861294584
+        },
+        "second": {
+          "first": "RawMessages!2sz4bkq",
+          "second": "Gauge!49kf3fc",
+          "direction": "row"
+        },
+        "direction": "column"
+      },
+      "direction": "column",
+      "splitPercentage": 33.82562650205925
+    },
+    "second": {
+      "direction": "row",
+      "first": "Plot!4k0u7he",
+      "second": {
+        "first": "Image!2dk6r7g",
+        "second": {
+          "first": {
+            "first": "RawMessages!4k3x75a",
+            "second": "RawMessages!2ia533",
+            "direction": "column"
+          },
+          "second": "Plot!40w8yha",
+          "direction": "column",
+          "splitPercentage": 42.70929553037873
+        },
+        "direction": "column",
+        "splitPercentage": 47.1005893556976
+      },
+      "splitPercentage": 60.732113144758735
+    },
+    "splitPercentage": 37.18626155878468
   }
 }
