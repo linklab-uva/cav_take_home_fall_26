@@ -1,17 +1,115 @@
 {
   "configById": {
-    "3D!145ryku": {
+    "Plot!3b5jsol": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/imu_top/jitter.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "e7899635-3c92-4668-b112-f6180991b205"
+        }
+      ],
+      "foxglovePanelTitle": "IMU Top Jitter Over Time",
+      "showLegend": false,
+      "minYValue": 0,
+      "maxYValue": 0.00001
+    },
+    "Plot!4ha7q3e": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/imu_bottom/jitter.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "3b881564-9757-4531-95b1-358b983b86c0"
+        }
+      ],
+      "foxglovePanelTitle": "IMU Bottom Jitter Over Time",
+      "showLegend": false,
+      "maxYValue": 0.00001,
+      "minYValue": 0
+    },
+    "Plot!jx1l8n": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/imu_vectornav/jitter.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "fc973a69-e573-453e-8e22-993263f4a00b"
+        }
+      ],
+      "showLegend": false,
+      "foxglovePanelTitle": "IMU VectorNav Jitter Over Time",
+      "minYValue": 0,
+      "maxYValue": 0.00001
+    },
+    "RawMessages!38bpf2w": {
+      "topicPath": "/imu_top/jitter"
+    },
+    "RawMessages!3wg7g3c": {
+      "topicPath": "/imu_bottom/jitter"
+    },
+    "RawMessages!32j0nta": {
+      "topicPath": "/imu_vectornav/jitter"
+    },
+    "Gauge!2q9i4sz": {
+      "path": "/imu_top/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 0.00001,
+      "colorMap": "red-yellow-green",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false,
+      "foxglovePanelTitle": "Top Jitter (0~1e-5)"
+    },
+    "Gauge!nhe0mx": {
+      "path": "/imu_bottom/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 0.00001,
+      "colorMap": "red-yellow-green",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false,
+      "foxglovePanelTitle": "Bottom Jitter (0~1e-5)"
+    },
+    "Gauge!3f77zce": {
+      "path": "/imu_vectornav/jitter.data",
+      "style": "dial",
+      "minValue": 0,
+      "maxValue": 0.00001,
+      "colorMap": "red-yellow-green",
+      "colorMode": "colormap",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false,
+      "reverseDirection": false,
+      "foxglovePanelTitle": "VectorNav Jitter (0~1e-5)"
+    },
+    "Image!2uo71vy": {
       "cameraState": {
-        "perspective": false,
-        "distance": 412.4176883292589,
-        "phi": 1.9847328244231306,
-        "thetaOffset": 87.74809160315084,
-        "targetOffset": [
-          37.86906835136318,
-          6.612026016497509,
-          3.843641056940937e-15
-        ],
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
         "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
           0,
           0,
           0
@@ -22,81 +120,16 @@
           0,
           1
         ],
+        "thetaOffset": 45,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
       },
       "followMode": "follow-pose",
-      "followTf": "rear_axle_middle_ground",
       "scene": {},
       "transforms": {},
-      "topics": {
-        "/platform/odom/filtered": {
-          "visible": true,
-          "axisScale": 3
-        },
-        "/ouster/scan": {
-          "visible": false,
-          "colorField": "intensity",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/ouster/points_downsampled": {
-          "visible": false,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/target_trajectory": {
-          "visible": true,
-          "pointSize": 3
-        },
-        "/voxel_grid/occupancy": {
-          "visible": true,
-          "frameLocked": false
-        },
-        "/pcl_left": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_front": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_right": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        }
-      },
-      "layers": {
-        "grid": {
-          "visible": false,
-          "frameLocked": true,
-          "label": "Grid",
-          "instanceId": "ea136226-b855-4580-8553-c27cb9eb21a3",
-          "layerId": "foxglove.Grid",
-          "size": 10,
-          "divisions": 10,
-          "lineWidth": 1,
-          "color": "#248eff",
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ]
-        }
-      },
+      "topics": {},
+      "layers": {},
       "publish": {
         "type": "point",
         "poseTopic": "/move_base_simple/goal",
@@ -106,18 +139,112 @@
         "poseEstimateYDeviation": 0.5,
         "poseEstimateThetaDeviation": 0.26179939
       },
-      "imageMode": {}
+      "imageMode": {
+        "imageTopic": "/camera/front_left/image_raw/compressed"
+      }
     },
-    "Plot!1s21uq3": {
-      "paths": [],
-      "showXAxisLabels": true,
-      "showYAxisLabels": true,
-      "showLegend": true,
-      "legendDisplay": "floating",
-      "showPlotValuesInLegend": false,
-      "isSynced": true,
-      "xAxisVal": "timestamp",
-      "sidebarDimension": 240
+    "Stack!4hszhfi": {
+      "panels": [
+        {
+          "panelId": "Plot!3b5jsol",
+          "size": 0.33045956941558546
+        },
+        {
+          "panelId": "Plot!4ha7q3e",
+          "size": 0.3304595694155854
+        },
+        {
+          "panelId": "Plot!jx1l8n",
+          "size": 0.33716453353355086
+        }
+      ]
+    },
+    "Stack!smz4ko": {
+      "panels": [
+        {
+          "panelId": "RawMessages!38bpf2w",
+          "size": 0.33045956941558546
+        },
+        {
+          "panelId": "RawMessages!3wg7g3c",
+          "size": 0.3304595694155854
+        },
+        {
+          "panelId": "RawMessages!32j0nta",
+          "size": 0.3326945574549072
+        }
+      ]
+    },
+    "Stack!v58ewk": {
+      "panels": [
+        {
+          "panelId": "Gauge!2q9i4sz",
+          "size": 0.33045956941558546
+        },
+        {
+          "panelId": "Gauge!nhe0mx",
+          "size": 0.3304595694155854
+        },
+        {
+          "panelId": "Gauge!3f77zce",
+          "size": 0.3326945574549072
+        }
+      ]
+    },
+    "Plot!276m00q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/fl.data",
+          "enabled": true,
+          "color": "#4e98e2",
+          "id": "f819a349-4c5e-46c5-a74b-9d20e09286ec"
+        }
+      ],
+      "foxglovePanelTitle": "Front Left Wheel Speed Ratio Over Time",
+      "showLegend": false
+    },
+    "Plot!4b3li9w": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/fr.data",
+          "enabled": true,
+          "color": "#d3d7d7",
+          "id": "aa56c8c1-8841-4887-917b-eaea63d8c7b5"
+        }
+      ],
+      "showLegend": false,
+      "foxglovePanelTitle": "Front Right Wheel Speed Ratio Over Time"
+    },
+    "Plot!49sehsm": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/rl.data",
+          "enabled": true,
+          "color": "#00ff2e",
+          "id": "0f36b9b5-bcc8-4641-9d5d-4897fbfeeb1d"
+        }
+      ],
+      "foxglovePanelTitle": "Rear Left Wheel Speed Ratio Over Time",
+      "showLegend": false
+    },
+    "Plot!3mqzqmn": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/slip/long/rr.data",
+          "enabled": true,
+          "color": "#ff0000",
+          "id": "6f270684-1499-4bc9-91ed-894a4603ed83"
+        }
+      ],
+      "foxglovePanelTitle": "Rear Right Wheel Speed Ratio Over Time",
+      "showLegend": false
+    },
+    "RawMessages!m6d8g9": {
+      "topicPath": "/lap_time.data"
     }
   },
   "globalVariables": {},
@@ -126,8 +253,39 @@
     "speed": 1
   },
   "layout": {
-    "first": "3D!145ryku",
-    "second": "Plot!1s21uq3",
+    "first": {
+      "first": {
+        "first": "Image!2uo71vy",
+        "second": "RawMessages!m6d8g9",
+        "direction": "row",
+        "splitPercentage": 50.762829403606105
+      },
+      "second": {
+        "first": {
+          "first": "Stack!4hszhfi",
+          "second": "Stack!smz4ko",
+          "direction": "row"
+        },
+        "second": "Stack!v58ewk",
+        "direction": "row",
+        "splitPercentage": 66.43633324045696
+      },
+      "direction": "column",
+      "splitPercentage": 33.91093640622476
+    },
+    "second": {
+      "first": {
+        "first": "Plot!276m00q",
+        "second": "Plot!4b3li9w",
+        "direction": "column"
+      },
+      "second": {
+        "first": "Plot!49sehsm",
+        "second": "Plot!3mqzqmn",
+        "direction": "column"
+      },
+      "direction": "column"
+    },
     "direction": "row"
   }
 }
