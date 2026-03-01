@@ -118,6 +118,310 @@
       "isSynced": true,
       "xAxisVal": "timestamp",
       "sidebarDimension": 240
+    },
+
+    "Image!FrontLeftCam": {
+      "imageMode": {
+        "imageTopic": "/camera/front_left/image_raw/compressed"
+      },
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      }
+    },
+
+    "Image!FrontRightCam": {
+      "imageMode": {
+        "imageTopic": "/camera/front_right/image_raw/compressed"
+      },
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      }
+    },
+
+    "Plot!wheelSlip": {
+      "paths": [{"value": "/slip/long/rr.data", "label": "Rear Right", "color": "#d024d2"}, 
+                {"value": "/slip/long/rl.data", "label": "Rear Left", "color": "#0000f0"},
+                {"value": "/slip/long/fr.data", "label": "Front Right", "color": "#64de31"},
+                {"value": "/slip/long/fl.data", "label": "Front Left", "color": "#34e3fd"}
+              ],
+      "foxglovePanelTitle": "Wheel Slip",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+
+    "Plot!wheelSlipRR": {
+      "paths": [{"value": "/slip/long/rr.data", "label": "Rear Right", "color": "#d024d2"}],
+      "foxglovePanelTitle": "Wheel Slip Rear Right",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!wheelSlipRL": {
+      "paths": [{"value": "/slip/long/rl.data", "label": "Rear Left", "color": "#0000f0"}],
+      "foxglovePanelTitle": "Wheel Slip Rear Left",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!wheelSlipFR": {
+      "paths": [{"value": "/slip/long/fr.data", "label": "Front Right", "color": "#64de31"}],
+      "foxglovePanelTitle": "Wheel Slip Front Right",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!wheelSlipFL": {
+      "paths": [{"value": "/slip/long/fl.data", "label": "Front Left", "color": "#34e3fd"}],
+      "foxglovePanelTitle": "Wheel Slip Front Left",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+
+    "Plot!Jitter": {
+      "paths": [{"value": "/imu_top/jitter.data", "label": "IMU Top", "color": "#ec722e"}, 
+                {"value": "/imu_bottom/jitter.data", "label": "IMU Bottom", "color": "#7dc343"},
+                {"value": "/imu_vectornav/jitter.data", "label": "IMU Vector Nav", "color": "#64a2d8"}
+              ],
+      "foxglovePanelTitle": "IMU Jitter",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "maxYValue": 0.00001,
+      "minYValue": 0,
+      "sidebarDimension": 240
+    },
+
+    "Plot!JitterTop": {
+      "paths": [{"value": "/imu_top/jitter.data", "label": "IMU Top", "color": "#ec722e"}],
+      "foxglovePanelTitle": "IMU Top Jitter",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "maxYValue": 0.00001,
+      "minYValue": 0,
+      "sidebarDimension": 240
+    },
+    "Plot!JitterBottom": {
+      "paths": [{"value": "/imu_bottom/jitter.data", "label": "IMU Bottom", "color": "#7dc343"}],
+      "foxglovePanelTitle": "IMU Bottom Jitter",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "maxYValue": 0.00001,
+      "minYValue": 0,
+      "sidebarDimension": 240
+    },
+    "Plot!JitterVN": {
+      "paths": [{"value": "/imu_vectornav/jitter.data", "label": "IMU Vector Nav", "color": "#64a2d8"}],
+      "foxglovePanelTitle": "IMU Vector Nav Jitter",
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "maxYValue": 0.00001,
+      "minYValue": 0,
+      "sidebarDimension": 240
+    },
+
+    "RawMessages!LapTimeS": {
+      "topic": "/laptime",
+      "viewMode": "text",
+      "topicPath": "/laptime"
+    },
+
+    "Markdown!LapTimeLabel": {
+      "renderMode": "static",
+      "markdown": "# Laptime", 
+      "fontSize": 14
+    },
+
+    "Tab!Tabs": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {"title": "Overview",
+         "layout": {
+            "direction": "column",
+            "first": {
+              "direction": "row",
+              "first": {
+                "direction": "row",
+                "first": "Image!FrontLeftCam",
+                "second": "Image!FrontRightCam"
+              },
+              "second": {
+                "direction": "column",
+                "first": "Markdown!LapTimeLabel",
+                "second": "RawMessages!LapTimeS",
+                "splitPercentage": 40
+              },
+              "splitPercentage": 90
+            },
+            "second": {
+              "direction": "column",
+              "first": "Plot!wheelSlip",
+              "second": "Plot!Jitter"
+            },
+            "splitPercentage": 28.57142
+         }
+        },
+
+        {"title": "Wheel Slip",
+          "layout": {
+            "direction": "column",
+            "first": "Plot!wheelSlip",
+            "second": {
+              "direction": "column",
+              "first": {
+                "direction": "column",
+                "first": "Plot!wheelSlipRR",
+                "second": "Plot!wheelSlipRL",
+                "splitPercentage": 50
+              },
+              "second": {
+                "direction": "column",
+                "first": "Plot!wheelSlipFR",
+                "second": "Plot!wheelSlipFL",
+                "splitPercentage": 50
+              },
+              "splitPercentage": 50
+            },
+            "splitPercentage": 22
+          }
+        },
+
+        {"title": "Jitter",
+          "layout": {
+            "direction": "column",
+            "first": {
+              "direction": "column",
+              "first": "Plot!Jitter",
+              "second": "Plot!JitterTop",
+              "splitPercentage": 50
+            },
+            "second": {
+              "direction": "column",
+              "first": "Plot!JitterBottom",
+              "second": "Plot!JitterVN",
+              "splitPercentage": 50
+            },
+            "splitPercentage": 50
+          }
+        }
+      ]
     }
   },
   "globalVariables": {},
@@ -125,9 +429,5 @@
   "playbackConfig": {
     "speed": 1
   },
-  "layout": {
-    "first": "3D!145ryku",
-    "second": "Plot!1s21uq3",
-    "direction": "row"
-  }
+  "layout": "Tab!Tabs"
 }
