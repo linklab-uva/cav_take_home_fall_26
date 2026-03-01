@@ -13,9 +13,12 @@ find_package(rclcpp_components REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(raptor_dbw_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(deep_orange_msgs REQUIRED)
+find_package(novatel_oem7_msgs REQUIRED)
+find_package(vectornav_msgs REQUIRED)
 
 # Create the library
 add_library(${PROJECT_NAME} SHARED
@@ -35,8 +38,12 @@ ament_target_dependencies(${PROJECT_NAME}
   nav_msgs
   geometry_msgs
   std_msgs
+  sensor_msgs
   ament_index_cpp
   deep_orange_msgs
+  raptor_dbw_msgs
+  novatel_oem7_msgs
+  vectornav_msgs
 )
 
 # Install the library

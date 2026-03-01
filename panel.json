@@ -6,22 +6,9 @@
         "distance": 412.4176883292589,
         "phi": 1.9847328244231306,
         "thetaOffset": 87.74809160315084,
-        "targetOffset": [
-          37.86906835136318,
-          6.612026016497509,
-          3.843641056940937e-15
-        ],
-        "target": [
-          0,
-          0,
-          0
-        ],
-        "targetOrientation": [
-          0,
-          0,
-          0,
-          1
-        ],
+        "targetOffset": [37.86906835136318, 6.612026016497509, 3.843641056940937e-15],
+        "target": [0, 0, 0],
+        "targetOrientation": [0, 0, 0, 1],
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -35,43 +22,9 @@
           "visible": true,
           "axisScale": 3
         },
-        "/ouster/scan": {
-          "visible": false,
-          "colorField": "intensity",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/ouster/points_downsampled": {
-          "visible": false,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
         "/target_trajectory": {
           "visible": true,
           "pointSize": 3
-        },
-        "/voxel_grid/occupancy": {
-          "visible": true,
-          "frameLocked": false
-        },
-        "/pcl_left": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_front": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
-        },
-        "/pcl_right": {
-          "visible": true,
-          "colorField": "z",
-          "colorMode": "colormap",
-          "colorMap": "turbo"
         }
       },
       "layers": {
@@ -85,49 +38,126 @@
           "divisions": 10,
           "lineWidth": 1,
           "color": "#248eff",
-          "position": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ]
+          "position": [0, 0, 0],
+          "rotation": [0, 0, 0]
         }
-      },
-      "publish": {
-        "type": "point",
-        "poseTopic": "/move_base_simple/goal",
-        "pointTopic": "/clicked_point",
-        "poseEstimateTopic": "/initialpose",
-        "poseEstimateXDeviation": 0.5,
-        "poseEstimateYDeviation": 0.5,
-        "poseEstimateThetaDeviation": 0.26179939
-      },
-      "imageMode": {}
+      }
     },
-    "Plot!1s21uq3": {
-      "paths": [],
+    "Plot!slip_fl": {
+      "paths": [{"value": "/slip/long/fl.data", "enabled": true, "legend": "Front Left Wheel Slip Ratio"}],
       "showXAxisLabels": true,
       "showYAxisLabels": true,
       "showLegend": true,
       "legendDisplay": "floating",
-      "showPlotValuesInLegend": false,
+      "showPlotValuesInLegend": true,
       "isSynced": true,
-      "xAxisVal": "timestamp",
-      "sidebarDimension": 240
+      "xAxisVal": "timestamp"
+    },
+    "Plot!slip_fr": {
+      "paths": [{"value": "/slip/long/fr.data", "enabled": true, "legend": "Front Right Wheel Slip Ratio"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!slip_rl": {
+      "paths": [{"value": "/slip/long/rl.data", "enabled": true, "legend": "Rear Left Wheel Slip Ratio"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!slip_rr": {
+      "paths": [{"value": "/slip/long/rr.data", "enabled": true, "legend": "Rear Right Wheel Slip Ratio"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!imu_jitter_top": {
+      "paths": [{"value": "/imu_top/jitter.data", "enabled": true, "legend": "Top IMU Jitter (ms)"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!imu_jitter_bottom": {
+      "paths": [{"value": "/imu_bottom/jitter.data", "enabled": true, "legend": "Bottom IMU Jitter (ms)"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!imu_jitter_vectornav": {
+      "paths": [{"value": "/imu_vectornav/jitter.data", "enabled": true, "legend": "VectorNav IMU Jitter (ms)"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
+    },
+    "Plot!laptime": {
+      "paths": [{"value": "/laptime.data", "enabled": true, "legend": "Lap Time (seconds)"}],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp"
     }
   },
   "globalVariables": {},
   "userNodes": {},
-  "playbackConfig": {
-    "speed": 1
-  },
+  "playbackConfig": {"speed": 1},
   "layout": {
     "first": "3D!145ryku",
-    "second": "Plot!1s21uq3",
+    "second": {
+      "first": {
+        "first": "Plot!slip_fl",
+        "second": "Plot!slip_fr",
+        "direction": "column"
+      },
+      "second": {
+        "first": {
+          "first": "Plot!slip_rl",
+          "second": "Plot!slip_rr",
+          "direction": "column"
+        },
+        "second": {
+          "first": {
+            "first": "Plot!imu_jitter_top",
+            "second": "Plot!imu_jitter_bottom",
+            "direction": "column"
+          },
+          "second": {
+            "first": "Plot!imu_jitter_vectornav",
+            "second": "Plot!laptime",
+            "direction": "column"
+          },
+          "direction": "column"
+        },
+        "direction": "column"
+      },
+      "direction": "column"
+    },
     "direction": "row"
   }
 }
