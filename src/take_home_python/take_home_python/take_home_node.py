@@ -39,7 +39,7 @@ class TakeHomeNode(Node):
     def __init__(self):
         super().__init__('take_home_metrics')
         
-        # qoS profile for best_effort
+        # qoS profile
         qos_profile = rclpy.qos.QoSProfile(
             reliability = rclpy.qos.ReliabilityPolicy.BEST_EFFORT,
             history = rclpy.qos.HistoryPolicy.KEEP_LAST,
