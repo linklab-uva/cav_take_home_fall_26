@@ -1,4 +1,4 @@
-FROM arm64v8/ros:humble
+FROM osrf/ros:humble-desktop
 
 ARG USERNAME=developer
 ARG USER_UID=1000
@@ -30,7 +30,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-foxglove-bridge \
     ros-humble-rosbag2-storage-mcap \
     ros-humble-rviz-common \
-    
     && rm -rf /var/lib/apt/lists/*
 
 # Setup bashrc for the user
@@ -39,7 +38,7 @@ RUN echo 'source /opt/ros/humble/setup.bash' >> /home/$USERNAME/.bashrc \
 
 ENV ROS_DOMAIN_ID=42
 
-WORKDIR /home/$USERNAME/cav_take_home
+WORKDIR /home/$USERNAME/cav_take_home_fall_26
 
 # Switch to the user
 USER $USERNAME

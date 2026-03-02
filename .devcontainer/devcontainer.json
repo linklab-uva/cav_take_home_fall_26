@@ -1,33 +1,50 @@
 {
-    "name": "ROS2 Take Home Container",
-    "build": {
-        "dockerfile": "../arm_humble/Dockerfile",
-        "context": "../arm_humble",
-        "args": {
-            "USERNAME": "${localEnv:USER}"
-        }
-    },
-    "remoteUser": "${localEnv:USER}",
-    "workspaceFolder": "/home/${localEnv:USER}/cav_take_home_fall_26",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/home/${localEnv:USER}/cav_take_home_fall_26,type=bind,consistency=cached",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-vscode.cpptools",
-                "ms-python.python",
-                "ms-iot.vscode-ros"
-            ]
-        }
-    },
-    "containerEnv": {
-        "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
-        "ROS_DOMAIN_ID": "42"
-    },
-    "runArgs": [
-        "--network=host"
-    ],
-    "mounts": 
-    [
-        "source=/Users/amar/iac_ws/cavmanual/data/bags,target=/home/${localEnv:USER}/cav_take_home_fall_26/data,type=bind,consistency=cached"
-    ]
+	"name": "ROS2 Humble Dev Container",
+	"build": {
+		"context": "..",
+		"dockerfile": "../arm_humble/Dockerfile",
+		"args": {
+			"USERNAME": "${localEnv:USER}",
+			"USER_UID": "1000",
+			"USER_GID": "1000"
+		}
+	},
+	"workspaceFolder": "/home/${localEnv:USER}/cav_take_home_fall_26",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/${localEnv:USER}/cav_take_home_fall_26,type=bind,consistency=cached",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/home/${localEnv:USER}/cav_take_home_fall_26,type=bind,consistency=cached"
+	],
+	"forwardPorts": [8765, 2222],
+	"portsAttributes": {
+		"8765": {
+			"label": "Foxglove Bridge",
+			"onAutoForward": "notify"
+		},
+		"2222": {
+			"label": "SSH",
+			"onAutoForward": "ignore"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-iot.vscode-ros"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				}
+			}
+		}
+	},
+	"remoteUser": "${localEnv:USER}",
+	"postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+	"features": {}
 }
