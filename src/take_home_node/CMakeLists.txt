@@ -8,6 +8,7 @@ endif()
 
 # Find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(nav_msgs REQUIRED)
@@ -16,6 +17,8 @@ find_package(std_msgs REQUIRED)
 find_package(raptor_dbw_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(deep_orange_msgs REQUIRED)
+find_package(novatel_oem7_msgs REQUIRED)
+find_package(vectornav_msgs REQUIRED)
 
 # Create the library
 add_library(${PROJECT_NAME} SHARED
@@ -37,6 +40,9 @@ ament_target_dependencies(${PROJECT_NAME}
   std_msgs
   ament_index_cpp
   deep_orange_msgs
+  raptor_dbw_msgs
+  novatel_oem7_msgs
+  vectornav_msgs
 )
 
 # Install the library
@@ -61,5 +67,14 @@ install(DIRECTORY
   include/
   DESTINATION include/
 )
+
+# Install Python package
+install(DIRECTORY
+  take_home_node/
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install Python setup.py
+ament_python_install_package(${PROJECT_NAME})
 
 ament_package()
