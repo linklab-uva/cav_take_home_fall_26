@@ -14,6 +14,15 @@ TakeHome::TakeHome(const rclcpp::NodeOptions& options)
       std::bind(&TakeHome::odometry_callback, this, std::placeholders::_1));
 
       metric_publisher_ = this->create_publisher<std_msgs::msg::Float32>("metrics_output", qos_profile);
+      // Lap time subscriber and publisher
+    curvilinear_subscriber_ = this->create_subscription<std_msgs::msg::Float32>(
+      "curvilinear_distance", qos_profile,
+      std::bind(&TakeHome::curvilinear_distance_callback, this, std::placeholders::_1));
+    
+    lap_time_publisher_ = this->create_publisher<std_msgs::msg::Float32>("lap_time", qos_profile);
+    
+    // Initialize lap start time
+    lap_start_time_ = this->now();
 }
 
 // 
@@ -35,5 +44,33 @@ void TakeHome::odometry_callback(nav_msgs::msg::Odometry::ConstSharedPtr odom_ms
   metric_publisher_->publish(metric_msg);
 }
 
+void TakeHome::curvilinear_distance_callback(std_msgs::msg::Float32::ConstSharedPtr msg) {
+  double current_distance = msg->data;
+  
+  // Detect lap completion: distance drops significantly
+  if (lap_in_progress_ && last_curvilinear_distance_ > 100.0 && current_distance < 50.0) {
+    // Lap completed!
+    rclcpp::Time lap_end_time = this->now();
+    double lap_time_seconds = (lap_end_time - lap_start_time_).seconds();
+    
+    // Publish lap time
+    std_msgs::msg::Float32 lap_time_msg;
+    lap_time_msg.data = lap_time_seconds;
+    lap_time_publisher_->publish(lap_time_msg);
+    
+    RCLCPP_INFO(this->get_logger(), "Lap completed! Time: %.2f seconds", lap_time_seconds);
+    
+    // Reset for next lap
+    lap_start_time_ = lap_end_time;
+  }
+  
+  // Start tracking after first message
+  if (!lap_in_progress_ && current_distance > 10.0) {
+    lap_in_progress_ = true;
+    lap_start_time_ = this->now();
+  }
+  
+  last_curvilinear_distance_ = current_distance;
+}
 
 RCLCPP_COMPONENTS_REGISTER_NODE(TakeHome)
